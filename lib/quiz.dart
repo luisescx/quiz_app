@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/home_page.dart';
 import 'package:quiz_app/questions.dart';
 
@@ -12,12 +13,24 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
+  List<String> selectedAnswers = [];
   var activeScreen = 'start-screen';
 
   void switchScreen() {
     setState(() {
       activeScreen = 'questions-screen';
     });
+  }
+
+  void chooseAnswer(String answer) {
+    selectedAnswers.add(answer);
+
+    if (selectedAnswers.length == questions.length) {
+      setState(() {
+        selectedAnswers = [];
+        activeScreen = 'start-screen';
+      });
+    }
   }
 
   @override
@@ -28,7 +41,9 @@ class _QuizState extends State<Quiz> {
         backgroundColor: Colors.deepPurple,
         body: activeScreen == 'start-screen'
             ? MyHomePage(switchScreen: switchScreen)
-            : const QuestionsScreen(),
+            : QuestionsScreen(
+                onSelectAnswer: chooseAnswer,
+              ),
       ),
     );
   }

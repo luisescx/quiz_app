@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyHomePage extends StatelessWidget {
   final void Function() switchScreen;
@@ -20,11 +21,11 @@ class MyHomePage extends StatelessWidget {
           const SizedBox(
             height: 48,
           ),
-          const Text(
+          Text(
             'Learn Flutter the fun away',
-            style: TextStyle(
-              fontSize: 20,
+            style: GoogleFonts.poppins(
               color: Colors.white,
+              fontSize: 20,
             ),
           ),
           const SizedBox(
@@ -36,8 +37,12 @@ class MyHomePage extends StatelessWidget {
               foregroundColor: Colors.white,
             ),
             icon: const Icon(Icons.arrow_right_alt),
-            label: const Text(
+            label: Text(
               'Start quiz',
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontWeight: FontWeight.normal,
+              ),
             ),
           ),
         ],
