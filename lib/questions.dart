@@ -52,8 +52,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               height: 30,
             ),
             ...currentQuestion.getShuffleQuestions().map((answer) {
-              return Container(
-                  child: Column(
+              return Column(
                 children: [
                   AnswerButton(
                     answerText: answer,
@@ -65,7 +64,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                     height: 4,
                   ),
                 ],
-              ));
+              );
             })
           ],
         ),
